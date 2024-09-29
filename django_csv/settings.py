@@ -82,12 +82,19 @@ WSGI_APPLICATION = 'django_csv.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+      'default': {
+          'ENGINE': 'djongo',
+          'NAME': 'umwelt',
+      }
+  }
 
 
 # Password validation
@@ -138,8 +145,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = "ujjwal@gftpl.in"
-EMAIL_HOST_PASSWORD = "SharmA@Django"
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
 EMAIL_PORT = 587
 
 from django.contrib.messages import constants as messages
