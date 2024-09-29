@@ -1,0 +1,71 @@
+Is problem ko solve karne ke liye pehle hum Django ke sath SQLite database use karenge, taki basic functionality implement karne mein aasani ho. Uske baad hum MongoDB aur Djongo pe shift karenge for advanced data storage and management.
+
+### Assignment ko solve karne ka high-level plan:
+
+### 1. **CSV Upload and Data Insertion**
+   - Hum Django ka ek form banayenge jisme user CSV file upload kar sake.
+   - CSV file ka data read karenge aur usse database mein insert ya update karenge.
+   - Agar record pehle se hai, to usko update karenge, agar nahi hai to naya record insert karenge.
+   
+   **Steps:**
+   - Django form create karo file upload ke liye.
+   - File handle karne ke liye `pandas` library use kar sakte ho.
+   - Data ko SQLite database mein insert karo using Django ORM.
+   
+   
+### 2. **Tabular Format Mein Data Display (Frontend)**
+   - Hum Django templates ka use karke data ko frontend pe dikhayenge.
+   - Agar data large hai to pagination implement karna padega taaki saara data ek hi page pe load na ho.
+   
+   **Steps:**
+   - Data ko queryset ke through fetch karo aur Django template mein dikhane ke liye context mein pass karo.
+   - Django ke `Paginator` class ka use karke data ko paginate kar sakte ho.
+
+### 3. **Data ko Column ke Basis Pe Filter Karna**
+   - User ko column ke values ke basis pe filter karne ki option deni hai.
+   - Ye filter dynamically work karega, jisme user jo values select kare uske hisaab se data fetch ho.
+   
+   **Steps:**
+   - Filter karne ke liye form fields create karo ya JavaScript ka use kar sakte ho.
+   - Filtered data ko queryset ke through database se fetch karo aur frontend pe render karo.
+
+### 4. **Filtered Data Export Karna**
+   - Jab user filter lagata hai, to us filtered data ko Excel format mein export karne ka option dena hai.
+   - Excel file sirf wahi data dikhaye jo filter ke baad bacha ho.
+   
+   **Steps:**
+   - `pandas` ya `openpyxl` ka use karke filtered data ko Excel format mein export karo.
+   - Ek button provide karo jo filtered data ko Excel mein download karne ki functionality de.
+
+### 5. **Date Range Filtering**
+   - User ko date fields ke basis pe data filter karne ka option dena hai.
+   - Date range select karne ka option de sakte ho jisme "Last Week", "Last Month" jaise predefined ranges ho.
+   
+   **Steps:**
+   - Date range ke liye form fields add karo.
+   - Django queryset mein date filtering logic add karo using `__gte` (greater than or equal to) aur `__lte` (less than or equal to).
+
+### 6. **Export Data in Excel**
+   - User ko poora ya filtered data export karne ka option dena hai.
+   - Excel file ko dynamic tarike se generate karo aur filtered data hi usme show ho.
+
+### 7. **Large Datasets Handle Karna**
+   - Agar data rows 10,000 se zyada ho to file frontend pe turant generate nahi hogi.
+   - User ko ek message show karo: “The file will be sent to your email shortly.”
+   - Backend asynchronous task ko trigger karega jo file generate karke user ke email pe bheje.
+   
+   **Steps:**
+   - `Celery` ya `Django background tasks` ka use karke email functionality implement karo.
+   - Email mein file attach karne ke liye Django ke `EmailMessage` class ka use kar sakte ho.
+
+### Deliverables:
+1. **Working Application with Source Code:** 
+   - Saari functionality kaam karegi.
+2. **Documentation:** 
+   - Application ko setup karne ke liye steps explain karo.
+3. **Test Cases:** 
+   - Ensure karo ki saari functionalities expected tareeke se kaam kar rahi hain.
+
+#### Abhi ke liye SQLite database pe work karo, jab basic structure ban jaye, hum Djongo aur MongoDB pe switch karenge for advanced storage and larger datasets.
+
+Is approach ko follow karke tum efficiently system bana paoge jo CSV data ko manage karega aur user-friendly frontend experience dega.
